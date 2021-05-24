@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import { first, tap } from 'rxjs/operators';
 import { JokesService } from 'src/api';
 import { Joke } from 'src/api/models';
 
@@ -19,11 +19,23 @@ export class JokesComponent implements OnInit {
 
   ngOnInit(): void {
     this.jokesService
-      .getJokes()
+      .getRandomJoke()
       .pipe(
-        tap((val: Joke[]) => {
-          this.joke = val[0].joke;
+        tap((val: Joke) => {
+          this.joke = val.joke;
         })
+      )
+      .subscribe();
+  }
+
+  getJoke({ category, firstName, lastName }) {
+    this.jokesService
+      .getRandomJoke({ limitTo: category, firstName, lastName })
+      .pipe(
+        tap((val: Joke) => {
+          this.joke = val.joke;
+        }),
+        first()
       )
       .subscribe();
   }
