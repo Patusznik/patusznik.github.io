@@ -1,0 +1,20 @@
+<div
+  class="d-flex justify-content-between align-items-center input-container p-4"
+>
+  <mat-icon svgIcon="minus_icon" (click)="decrement()"></mat-icon>
+  <mat-form-field appearance="none">
+    <input
+      matInput
+      class="number-input"
+      max="100"
+      min="1"
+      type="number"
+      [(ngModel)]="value"
+      [value]="value"
+      (change)="writeValue($event.target.value)"
+    />
+  </mat-form-field>
+  <!-- <button mat-mini-fab (click)="decrement()"> -->
+  <mat-icon svgIcon="plus_icon" (click)="increment()"></mat-icon>
+  <!-- </button> -->
+</div>

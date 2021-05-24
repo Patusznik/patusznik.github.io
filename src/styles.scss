@@ -1,78 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '~@angular/material' as mat;
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
-@import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,500");
 
 $fontConfig: (
-  display-4: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  display-3: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  display-2: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  display-1: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  headline: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  title: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  subheading-2: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  subheading-1: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  body-2: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  body-1: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  button: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  caption: mat.define-typography-level(16px, 1, 400, "Inter", 0),
-  input: mat.define-typography-level(16px, 1, 400, "Inter", 0),
+  display-4: mat.define-typography-level(16px, 112px, 400, "Inter", -0.0938em),
+  display-3: mat.define-typography-level(16px, 56px, 400, "Inter", -0.0313em),
+  display-2: mat.define-typography-level(16px, 48px, 400, "Inter", 0em),
+  display-1: mat.define-typography-level(16px, 40px, 400, "Inter", 0.0156em),
+  headline: mat.define-typography-level(16px, 32px, 400, "Inter", 0em),
+  title: mat.define-typography-level(16px, 32px, 400, "Inter", 0.0094em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, "Inter", 0.0094em),
+  subheading-1: mat.define-typography-level(16px, 24px, 400, "Inter", 0.0063em),
+  body-2: mat.define-typography-level(16px, 24px, 400, "Inter", 0.0156em),
+  body-1: mat.define-typography-level(16px, 20px, 400, "Inter", 0.0156em),
+  button: mat.define-typography-level(16px, 26px, 400, "Inter", 0.0313em),
+  caption: mat.define-typography-level(16px, 20px, 400, "Inter", 0.025em),
+  input: mat.define-typography-level(16px, 1.625, 400, "Inter", 0.0781em),
 );
 
+// Foreground Elements
+
+// Light Theme Text
 $dark-text: #000000;
 $dark-primary-text: rgba($dark-text, 0.87);
-$dark-accent-text: rgba(rgba(black, 0.87), 0.54);
-$dark-disabled-text: rgba(rgba(black, 0.87), 0.38);
-$dark-dividers: rgba(rgba(black, 0.87), 0.12);
-$dark-focused: rgba(rgba(black, 0.87), 0.12);
-mat.$light-theme-foreground-palette: (
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$mat-light-theme-foreground: (
   base: black,
-  divider: rgba(black, 0.12),
-  dividers: rgba(black, 0.12),
-  disabled: rgba(black, 0.38),
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
   disabled-button: rgba($dark-text, 0.26),
-  disabled-text: rgba(black, 0.38),
+  disabled-text: $dark-disabled-text,
   elevation: black,
   secondary-text: $dark-accent-text,
-  hint-text: rgba(black, 0.38),
+  hint-text: $dark-disabled-text,
   accent-text: $dark-accent-text,
   icon: $dark-accent-text,
   icons: $dark-accent-text,
-  text: rgba(black, 0.87),
-  slider-min: rgba(black, 0.87),
+  text: $dark-primary-text,
+  slider-min: $dark-primary-text,
   slider-off: rgba($dark-text, 0.26),
-  slider-off-active: rgba(black, 0.38)
+  slider-off-active: $dark-disabled-text,
 );
 
 // Dark Theme text
 $light-text: #ffffff;
 $light-primary-text: $light-text;
-$light-accent-text: rgba(white, 0.7);
-$light-disabled-text: rgba(white, 0.5);
-$light-dividers: rgba(white, 0.12);
-$light-focused: rgba(white, 0.12);
+$light-accent-text: rgba($light-primary-text, 0.7);
+$light-disabled-text: rgba($light-primary-text, 0.5);
+$light-dividers: rgba($light-primary-text, 0.12);
+$light-focused: rgba($light-primary-text, 0.12);
 
-mat.$dark-theme-foreground-palette: (
+$mat-dark-theme-foreground: (
   base: $light-text,
-  divider: rgba(white, 0.12),
-  dividers: rgba(white, 0.12),
-  disabled: rgba(white, 0.5),
+  divider: $light-dividers,
+  dividers: $light-dividers,
+  disabled: $light-disabled-text,
   disabled-button: rgba($light-text, 0.3),
-  disabled-text: rgba(white, 0.5),
+  disabled-text: $light-disabled-text,
   elevation: black,
-  hint-text: rgba(white, 0.5),
+  hint-text: $light-disabled-text,
   secondary-text: $light-accent-text,
   accent-text: $light-accent-text,
   icon: $light-text,
@@ -80,7 +76,7 @@ mat.$dark-theme-foreground-palette: (
   text: $light-text,
   slider-min: $light-text,
   slider-off: rgba($light-text, 0.3),
-  slider-off-active: rgba($light-text, 0.3)
+  slider-off-active: rgba($light-text, 0.3),
 );
 
 // Background config
@@ -95,7 +91,7 @@ $dark-bg-tooltip: lighten(#2c2c2c, 20%);
 $dark-bg-alpha-4: rgba(#2c2c2c, 0.04);
 $dark-bg-alpha-12: rgba(#2c2c2c, 0.12);
 
-mat.$light-theme-background-palette: (
+$mat-light-theme-background: (
   background: $light-background,
   status-bar: $light-bg-darker-20,
   app-bar: $light-bg-darker-5,
@@ -105,12 +101,12 @@ mat.$light-theme-background-palette: (
   tooltip: $dark-bg-tooltip,
   disabled-button: $dark-bg-alpha-12,
   raised-button: $light-bg-lighter-5,
-  focused-button: rgba(black, 0.12),
+  focused-button: $dark-focused,
   selected-button: $light-bg-darker-20,
   selected-disabled-button: $light-bg-darker-30,
   disabled-button-toggle: $light-bg-darker-10,
   unselected-chip: $light-bg-darker-10,
-  disabled-list-option: $light-bg-darker-10
+  disabled-list-option: $light-bg-darker-10,
 );
 
 // Dark bg
@@ -123,7 +119,7 @@ $light-bg-alpha-4: rgba(#f9f9f9, 0.04);
 $light-bg-alpha-12: rgba(#f9f9f9, 0.12);
 
 // Background palette for dark themes.
-mat.$dark-theme-background-palette: (
+$mat-dark-theme-background: (
   background: $dark-background,
   status-bar: $dark-bg-lighter-20,
   app-bar: $dark-bg-lighter-5,
@@ -133,12 +129,12 @@ mat.$dark-theme-background-palette: (
   tooltip: $dark-bg-lighter-20,
   disabled-button: $light-bg-alpha-12,
   raised-button: $dark-bg-lighter-5,
-  focused-button: rgba(white, 0.12),
+  focused-button: $light-focused,
   selected-button: $dark-bg-lighter-20,
   selected-disabled-button: $dark-bg-lighter-30,
   disabled-button-toggle: $dark-bg-lighter-10,
   unselected-chip: $dark-bg-lighter-20,
-  disabled-list-option: $dark-bg-lighter-10
+  disabled-list-option: $dark-bg-lighter-10,
 );
 
 // Compute font config
@@ -150,9 +146,9 @@ body {
   --primary-color: #34394f;
   --primary-lighter-color: #c2c4ca;
   --primary-darker-color: #212436;
-  --text-primary-color: #{white};
-  --text-primary-lighter-color: #{rgba(black, 0.87)};
-  --text-primary-darker-color: #{white};
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
 }
 $mat-primary: (
   main: #34394f,
@@ -162,9 +158,9 @@ $mat-primary: (
   // For slide toggle,
   contrast:
     (
-      main: white,
-      lighter: rgba(black, 0.87),
-      darker: white,
+      main: $light-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
     ),
 );
 $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
@@ -173,9 +169,9 @@ body {
   --accent-color: #f5f6f8;
   --accent-lighter-color: #fcfcfd;
   --accent-darker-color: #f0f2f5;
-  --text-accent-color: #{rgba(black, 0.87)};
-  --text-accent-lighter-color: #{rgba(black, 0.87)};
-  --text-accent-darker-color: #{rgba(black, 0.87)};
+  --text-accent-color: #{$dark-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$dark-primary-text};
 }
 $mat-accent: (
   main: #f5f6f8,
@@ -185,9 +181,9 @@ $mat-accent: (
   // For slide toggle,
   contrast:
     (
-      main: rgba(black, 0.87),
-      lighter: rgba(black, 0.87),
-      darker: rgba(black, 0.87),
+      main: $dark-primary-text,
+      lighter: $dark-primary-text,
+      darker: $dark-primary-text,
     ),
 );
 $theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
@@ -196,9 +192,9 @@ body {
   --warn-color: #f39a9a;
   --warn-lighter-color: #ffb3b3;
   --warn-darker-color: #ff0000;
-  --text-warn-color: #{rgba(black, 0.87)};
-  --text-warn-lighter-color: #{rgba(black, 0.87)};
-  --text-warn-darker-color: #{white};
+  --text-warn-color: #{$dark-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
 }
 $mat-warn: (
   main: #f39a9a,
@@ -208,9 +204,9 @@ $mat-warn: (
   // For slide toggle,
   contrast:
     (
-      main: rgba(black, 0.87),
-      lighter: rgba(black, 0.87),
-      darker: white,
+      main: $dark-primary-text,
+      lighter: $dark-primary-text,
+      darker: $light-primary-text,
     ),
 );
 $theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
@@ -220,16 +216,16 @@ $theme: (
   accent: $theme-accent,
   warn: $theme-warn,
   is-dark: false,
-  foreground: mat.$light-theme-foreground-palette,
-  background: mat.$light-theme-background-palette,
+  foreground: $mat-light-theme-foreground,
+  background: $mat-light-theme-background,
 );
 $altTheme: (
   primary: $theme-primary,
   accent: $theme-accent,
   warn: $theme-warn,
   is-dark: true,
-  foreground: mat.$dark-theme-foreground-palette,
-  background: mat.$dark-theme-background-palette,
+  foreground: $mat-dark-theme-foreground,
+  background: $mat-dark-theme-background,
 );
 
 // Theme Init
@@ -245,10 +241,7 @@ $altTheme: (
 .mat-raised-button,
 .mat-stroked-button,
 .mat-flat-button {
-  padding: 0 1.15em;
-  margin: 0 0.65em;
-  min-width: 3em;
-  line-height: 67.60000000000001px;
+  padding: 1rem 0 !important;
 }
 
 .mat-standard-chip {
@@ -263,32 +256,6 @@ $altTheme: (
     font-family: "Inter";
   }
 }
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$chuck-app-primary: mat.define-palette(mat.$indigo-palette);
-$chuck-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$chuck-app-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$chuck-app-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $chuck-app-primary,
-      accent: $chuck-app-accent,
-      warn: $chuck-app-warn,
-    ),
-  )
-);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($chuck-app-theme);
 @import "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
@@ -359,17 +326,22 @@ $spacers: map-merge(
       (
         $spacer * 4.25,
       )
-      //48px,,,,
+      //48px,,,,,,,,,,,,,,
   ),
   $spacers
 );
-
+@import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities/api";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
 
+* {
+  box-sizing: border-box;
+}
+
 $bg-color: #f9f9f9;
 $white: #ffffff;
 $dark: #34394f;
 $gray-1: #c4c4c4;
+$gray-2: #f5f6f8;

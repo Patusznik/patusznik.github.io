@@ -17,18 +17,38 @@ export class JokeFormComponent {
     lastName?: string;
   }> = new EventEmitter();
 
+  @Output()
+  save: EventEmitter<{
+    category?: string;
+    firstName?: string;
+    lastName?: string;
+    number: number;
+  }> = new EventEmitter();
+
   category: FormControl = new FormControl('');
   impersonate: FormControl = new FormControl('');
+  number: FormControl = new FormControl(0);
 
   onSubmit(): void {
-    const params = {
+    const params = this.getParams();
+    this.submit.emit(params);
+  }
+
+  onSave(): void {
+    const params = this.getParams();
+    console.log('onSave', params);
+    this.save.emit(params);
+  }
+
+  private getParams(): any {
+    return {
       category: this.category?.value,
       firstName: this.impersonate.value.split(' ')[0],
       lastName: this.impersonate.value
         .split(' ')
         .filter((_, i) => i !== 0)
         .join(' '),
+      number: this.number.value,
     };
-    this.submit.emit(params);
   }
 }

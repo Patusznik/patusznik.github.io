@@ -1,12 +1,20 @@
 <div class="container">
   <div class="row justify-content-center align-items-center">
     <div class="col-5 d-flex flex-column py-12">
-      <img src="/assets/chuck.png" alt="chuck norris photo" />
+      <img
+        *ngIf="!impersonated; else random"
+        src="/assets/chuck.png"
+        alt="chuck norris photo"
+      />
       <span class="mt-6 mb-8 mat-body-2"> “{{ joke }}" </span>
       <chuck-joke-form
         [categories]="categories"
+        (save)="saveJokes($event)"
         (submit)="getJoke($event)"
       ></chuck-joke-form>
     </div>
   </div>
 </div>
+<ng-template #random>
+  <img src="/assets/random.png" alt="random photo" />
+</ng-template>

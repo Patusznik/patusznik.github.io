@@ -10,7 +10,25 @@
   <mat-label>Impresonate Chuck Norris</mat-label>
   <input matInput placeholder="Placeholder" [formControl]="impersonate" />
 </mat-form-field>
-<button mat-button-primary type="submit" (click)="onSubmit()">
+<button
+  mat-raised-button
+  color="primary"
+  type="submit"
+  class="mb-1"
+  (click)="onSubmit()"
+>
   Draw a random
   {{ impersonate?.value ? impersonate.value : "Chuck Norris" }} Joke
 </button>
+<div class="row mt-12">
+  <chuck-number-input class="col-4" [formControl]="number"></chuck-number-input>
+  <button
+    class="col-8"
+    mat-raised-button
+    color="accent"
+    type="submit"
+    (click)="onSave()"
+  >
+    Save jokes
+  </button>
+</div>

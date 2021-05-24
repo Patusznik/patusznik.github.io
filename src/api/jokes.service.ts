@@ -15,21 +15,36 @@ export class JokesService {
   constructor(private http: HttpClient) {}
 
   getRandomJoke(jokesParams?: JokeParams): Observable<Joke> {
-    const paramsObj =
-      jokesParams &&
-      Object.keys(jokesParams)?.reduce((prev, curr) => {
-        if (!!jokesParams[curr]) {
-          prev[curr] = jokesParams[curr];
-        }
-        return prev;
-      }, {});
     const params: HttpParams = new HttpParams({
-      fromObject: paramsObj,
+      fromObject: this.getHttpParams(jokesParams),
     });
     return this.http
       .get<{ type: string; value: Joke }>(`${this.path}/random`, {
         params,
       })
       .pipe(map(({ type, value }) => value));
+  }
+
+  getRandomJokes(jokesParams: JokeParams, number: number): Observable<Joke[]> {
+    const params: HttpParams = new HttpParams({
+      fromObject: this.getHttpParams(jokesParams),
+    });
+    return this.http
+      .get<{ type: string; value: Joke[] }>(`${this.path}/random/${number}`, {
+        params,
+      })
+      .pipe(map(({ type, value }) => value));
+  }
+
+  private getHttpParams(jokesParams: JokeParams): { [key: string]: string } {
+    return (
+      jokesParams &&
+      Object.keys(jokesParams)?.reduce((prev, curr) => {
+        if (!!jokesParams[curr]) {
+          prev[curr] = jokesParams[curr];
+        }
+        return prev;
+      }, {})
+    );
   }
 }
