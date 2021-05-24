@@ -14,19 +14,19 @@ $gray-1: #c4c4c4;
 $gray-2: #f5f6f8;
 
 $fontConfig: (
-  display-4: mat.define-typography-level(16px, 112px, 400, "Inter", -0.0938em),
-  display-3: mat.define-typography-level(16px, 56px, 400, "Inter", -0.0313em),
+  display-4: mat.define-typography-level(16px, 112px, 400, "Inter", 0em),
+  display-3: mat.define-typography-level(16px, 56px, 400, "Inter", 0em),
   display-2: mat.define-typography-level(16px, 48px, 400, "Inter", 0em),
-  display-1: mat.define-typography-level(16px, 40px, 400, "Inter", 0.0156em),
+  display-1: mat.define-typography-level(16px, 40px, 400, "Inter", 0em),
   headline: mat.define-typography-level(16px, 32px, 400, "Inter", 0em),
-  title: mat.define-typography-level(16px, 32px, 400, "Inter", 0.0094em),
-  subheading-2: mat.define-typography-level(16px, 28px, 400, "Inter", 0.0094em),
-  subheading-1: mat.define-typography-level(16px, 24px, 400, "Inter", 0.0063em),
-  body-2: mat.define-typography-level(16px, 24px, 400, "Inter", 0.0156em),
+  title: mat.define-typography-level(16px, 32px, 400, "Inter", 0em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, "Inter", 0em),
+  subheading-1: mat.define-typography-level(16px, 24px, 400, "Inter", 0em),
+  body-2: mat.define-typography-level(16px, 24px, 400, "Inter", 0em),
   body-1: mat.define-typography-level(18px, 18px, 600, "Inter", 0em),
   button: mat.define-typography-level(16px, 26px, 600, "Inter", 0em),
-  caption: mat.define-typography-level(16px, 20px, 400, "Inter", 0.025em),
-  input: mat.define-typography-level(16px, 1.625, 400, "Inter", 0.0781em),
+  caption: mat.define-typography-level(16px, 20px, 400, "Inter", 0em),
+  input: mat.define-typography-level(16px, 1.625, 400, "Inter", 0em),
 );
 
 // Foreground Elements
@@ -332,7 +332,7 @@ $spacers: map-merge(
       (
         $spacer * 4.25,
       )
-      //48px,,,,,,,,,,,,,,,,,,,,,,,,,,,
+      //48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
   $spacers
 );

@@ -21,14 +21,19 @@
   {{ impersonate?.value ? impersonate.value : "Chuck Norris" }} Joke
 </button>
 <div class="row mt-12">
-  <chuck-number-input class="col-4" [formControl]="number"></chuck-number-input>
-  <button
-    class="col-8"
-    mat-raised-button
-    color="accent"
-    type="submit"
-    (click)="onSave()"
-  >
-    Save jokes
-  </button>
+  <chuck-number-input
+    class="col-lg-4"
+    [formControl]="number"
+  ></chuck-number-input>
+  <div class="col-lg-8 mt-3 d-flex justify-content-stretch">
+    <button
+      class="flex-grow-1"
+      mat-raised-button
+      color="accent"
+      type="submit"
+      (click)="onSave()"
+    >
+      Save jokes
+    </button>
+  </div>
 </div>
