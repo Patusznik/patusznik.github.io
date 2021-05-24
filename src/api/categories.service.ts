@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,6 +13,8 @@ export class CategoriesService {
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<string[]> {
-    return this.http.get(this.path).pipe(map(({ type, value }) => value));
+    return this.http
+      .get<{ type: string; value: string[] }>(this.path)
+      .pipe(map(({ type, value }) => value));
   }
 }

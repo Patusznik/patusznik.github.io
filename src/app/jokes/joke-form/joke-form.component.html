@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>Categories</mat-label>
-  <mat-select [formControl]="category" multiple>
+  <mat-select [formControl]="category">
     <mat-option *ngFor="let category of categories" [value]="category">{{
       category
     }}</mat-option>
@@ -10,3 +10,7 @@
   <mat-label>Impresonate Chuck Norris</mat-label>
   <input matInput placeholder="Placeholder" [formControl]="impersonate" />
 </mat-form-field>
+<button mat-button-primary type="submit">
+  Draw a random
+  {{ impersonate?.value ? impersonate.value : "Chuck Norris" }} Joke
+</button>

@@ -37,7 +37,6 @@ $dark-accent-text: rgba(rgba(black, 0.87), 0.54);
 $dark-disabled-text: rgba(rgba(black, 0.87), 0.38);
 $dark-dividers: rgba(rgba(black, 0.87), 0.12);
 $dark-focused: rgba(rgba(black, 0.87), 0.12);
-
 mat.$light-theme-foreground-palette: (
   base: black,
   divider: rgba(black, 0.12),
@@ -360,7 +359,7 @@ $spacers: map-merge(
       (
         $spacer * 4.25,
       )
-      //48px,,
+      //48px,,,,
   ),
   $spacers
 );
