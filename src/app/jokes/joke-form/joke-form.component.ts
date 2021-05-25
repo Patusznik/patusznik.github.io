@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms';
 export class JokeFormComponent {
   @Input()
   categories: string[];
+
   @Output()
   submit: EventEmitter<{
     category?: string;

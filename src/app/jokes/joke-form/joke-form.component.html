@@ -1,39 +1,51 @@
-<mat-form-field appearance="fill">
-  <mat-label>Categories</mat-label>
-  <mat-select [formControl]="category">
+<mat-form-field appearance="none" [class.dirty]="category.dirty">
+  <mat-select [formControl]="category" placeholder="Category">
     <mat-option *ngFor="let category of categories" [value]="category">{{
-      category
+      category | titlecase
     }}</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Impersonate Chuck Norris</mat-label>
-  <input matInput placeholder="Placeholder" [formControl]="impersonate" />
+<mat-form-field
+  appearance="none"
+  class="mt-4"
+  [class.dirty]="impersonate.dirty"
+>
+  <input
+    matInput
+    placeholder="Impersonate Chuck Norris"
+    [formControl]="impersonate"
+  />
 </mat-form-field>
 <button
-  mat-raised-button
+  mat-flat-button
   color="primary"
   type="submit"
-  class="mb-1"
+  class="mb-1 mt-8"
   (click)="onSubmit()"
 >
   Draw a random
   {{ impersonate?.value ? impersonate.value : "Chuck Norris" }} Joke
 </button>
-<div class="row mt-12">
+<div class="row mt-12 align-items-start">
   <chuck-number-input
     class="col-lg-4"
     [formControl]="number"
   ></chuck-number-input>
-  <div class="col-lg-8 mt-3 d-flex justify-content-stretch">
+  <div class="col-lg-8 mt-3 mt-lg-0 d-flex justify-content-stretch">
     <button
       class="flex-grow-1"
-      mat-raised-button
+      mat-flat-button
       color="accent"
       type="submit"
       (click)="onSave()"
+      [disabled]="number.invalid || !number.dirty"
     >
       Save jokes
     </button>
   </div>
+</div>
+<div class="row mt-3">
+  <mat-error *ngIf="number.invalid"
+    >You can pick a number from 1 to 100.</mat-error
+  >
 </div>

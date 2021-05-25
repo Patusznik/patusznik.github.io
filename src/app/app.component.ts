@@ -5,7 +5,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'chuck-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'chuck-app';
@@ -18,7 +17,7 @@ export class AppComponent {
   }
 
   loadIcons(): void {
-    const icons = ['plus_icon', 'minus_icon'];
+    const icons = ['caret_down', 'plus_icon', 'minus_icon'];
     icons.forEach((icon) => {
       const fileName = icon.replace('_', '-');
       this.iconRegistry.addSvgIcon(

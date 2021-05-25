@@ -1,5 +1,5 @@
 import { Component, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'chuck-number-input',
@@ -8,6 +8,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => NumberInputComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
       useExisting: forwardRef(() => NumberInputComponent),
       multi: true,
     },
@@ -24,7 +29,7 @@ export class NumberInputComponent implements ControlValueAccessor {
 
   disabled = false;
 
-  get value() {
+  get value(): number {
     return this._value;
   }
 
@@ -34,11 +39,11 @@ export class NumberInputComponent implements ControlValueAccessor {
     this.onChange(this._value);
   }
 
-  increment() {
+  increment(): void {
     this.value++;
   }
 
-  decrement() {
+  decrement(): void {
     this.value--;
   }
 
@@ -56,7 +61,7 @@ export class NumberInputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  markAsTouched() {
+  markAsTouched(): void {
     if (!this.touched) {
       this.onTouched();
       this.touched = true;
@@ -65,5 +70,14 @@ export class NumberInputComponent implements ControlValueAccessor {
 
   setDisabledState(disabled: boolean): void {
     this.disabled = disabled;
+  }
+
+  validate({ value }: FormControl) {
+    const isNotValid = (value > 100 || value < 1) && this.touched;
+    return (
+      isNotValid && {
+        invalid: true,
+      }
+    );
   }
 }

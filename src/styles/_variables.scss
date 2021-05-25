@@ -1,0 +1,71 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "./colors";
+
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 0.25,
+    ),
+    //4px
+    2:
+      (
+        $spacer * 0.5,
+      ),
+    //8px
+    3:
+      (
+        $spacer * 0.75,
+      ),
+    //12px
+    4:
+      (
+        $spacer,
+      ),
+    //16px
+    5:
+      (
+        $spacer * 1.25,
+      ),
+    //20px
+    6:
+      (
+        $spacer * 1.5,
+      ),
+    //24px
+    7:
+      (
+        $spacer * 1.75,
+      ),
+    //28px
+    8:
+      (
+        $spacer * 2,
+      ),
+    //32px
+    9:
+      (
+        $spacer * 2.25,
+      ),
+    //36px
+    10:
+      (
+        $spacer * 2.5,
+      ),
+    //40px
+    11:
+      (
+        $spacer * 4,
+      ),
+    //44px
+    12:
+      (
+        $spacer * 4.25,
+      )
+      //48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  ),
+  $spacers
+);

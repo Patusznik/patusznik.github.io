@@ -1,4 +1,10 @@
 @use '~@angular/material' as mat;
+//TODO:  This theming for angular material has some errors which require additional work, that's why ng-deep is used in components but I know it's wrong to do //
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzM0Mzk0ZiIsIj9lcjwjYzJjNGNhIiwiO2VyPCMyMTI0MzZ$LCIlPmBePCNmNWY2ZjgiLCI~ZXI8I2ZjZmNmZCIsIjtlcjwjZjBmMmY1fiwid2Fybj5gXjwjZjM5YTlhIiwiP2VyPCNmYmUxZTEiLCI7ZXI8I2VkN2U3ZX4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZjlmOWY5IiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00IiwiZmFtaWx5PEludGVyIiwidmFyaWFudDxyZWd1bGFyIiwic2l6ZT4xNn0sYEA8KC0zIiwiZmFtaWx5PEludGVyIiwic2l6ZT4xNn0sYEA8KC0yIiwiZmFtaWx5PEludGVyIiwic2l6ZT4xNn0sYEA8KC0xIiwiZmFtaWx5PEludGVyIiwic2l6ZT4xNn0sYEA8aGVhZGxpbmUiLCJmYW1pbHk8SW50ZXIiLCJzaXplPjE2fSxgQDx0aXRsZSIsImZhbWlseTxJbnRlciIsInZhcmlhbnQ8cmVndWxhciIsInNpemU$MTZ9LGBAPHN1YiktMiIsImZhbWlseTxJbnRlcn4sYEA8c3ViKS0xIiwiZmFtaWx5PEludGVyIiwidmFyaWFudDxyZWd1bGFyIiwic2l6ZT4xNn0sYEA8Ym9keS0yIiwiZmFtaWx5PEludGVyIiwidmFyaWFudDxyZWd1bGFyIiwic2l6ZT4xNn0sYEA8Ym9keS0xIiwiZmFtaWx5PEludGVyIiwic2l6ZT4xNn0sYEA8YnV0dG9uIiwiZmFtaWx5PEludGVyIiwidmFyaWFudDxyZWd1bGFyIiwibGluZUhlaWdodD4yNiwic2l6ZT4xNiwic3BhY2luZz4wLjV9LGBAPGNhcHRpb24iLCJmYW1pbHk8SW50ZXIiLCJzaXplPjE2fSxgQDxpbnB1dCIsImZhbWlseTxJbnRlciIsInNpemU$MTZ9XSwiaWNvbnM8RmlsbGVkIiwiP25lc3M$dHJ1ZSwidmVyc2lvbj4xMn0=
+*/
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -7,11 +13,7 @@
 @import "https://fonts.googleapis.com/css?family=Material+Icons";
 @import url("https://fonts.googleapis.com/css?family=Inter:300,400,500,600");
 
-$bg-color: #f9f9f9;
-$white: #ffffff;
-$dark: #34394f;
-$gray-1: #c4c4c4;
-$gray-2: #f5f6f8;
+@import "./styles/variables";
 
 $fontConfig: (
   display-4: mat.define-typography-level(16px, 112px, 400, "Inter", 0em),
@@ -249,6 +251,7 @@ $altTheme: (
 .mat-stroked-button,
 .mat-flat-button {
   padding: 1rem 0 !important;
+  line-height: 26px !important;
 }
 
 .mat-standard-chip {
@@ -263,79 +266,7 @@ $altTheme: (
     font-family: "Inter";
   }
 }
-@import "bootstrap/scss/functions";
 
-// 2. Include any default variable overrides here
-
-// 3. Include remainder of required Bootstrap stylesheets
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-$spacers: ();
-$spacers: map-merge(
-  (
-    0: 0,
-    1: (
-      $spacer * 0.25,
-    ),
-    //4px
-    2:
-      (
-        $spacer * 0.5,
-      ),
-    //8px
-    3:
-      (
-        $spacer * 0.75,
-      ),
-    //12px
-    4:
-      (
-        $spacer,
-      ),
-    //16px
-    5:
-      (
-        $spacer * 1.25,
-      ),
-    //20px
-    6:
-      (
-        $spacer * 1.5,
-      ),
-    //24px
-    7:
-      (
-        $spacer * 1.75,
-      ),
-    //28px
-    8:
-      (
-        $spacer * 2,
-      ),
-    //32px
-    9:
-      (
-        $spacer * 2.25,
-      ),
-    //36px
-    10:
-      (
-        $spacer * 2.5,
-      ),
-    //40px
-    11:
-      (
-        $spacer * 4,
-      ),
-    //44px
-    12:
-      (
-        $spacer * 4.25,
-      )
-      //48px,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-  ),
-  $spacers
-);
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities/api";

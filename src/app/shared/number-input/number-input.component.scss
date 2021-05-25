@@ -1,6 +1,8 @@
+@import "../../../styles/variables";
+
 .input-container {
   border-radius: 6px;
-  background-color: #f5f6f8;
+  background-color: $gray-2;
 }
 
 .number-input {
@@ -20,8 +22,13 @@
   }
 }
 
+.invalid {
+  background-color: var(--warn-color);
+}
+
 mat-icon {
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 :host {
@@ -37,6 +44,7 @@ mat-icon {
     }
     .mat-form-field-wrapper {
       padding: 0;
+      border: none;
     }
   }
 }
